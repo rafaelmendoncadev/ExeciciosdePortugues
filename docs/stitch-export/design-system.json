@@ -1,0 +1,132 @@
+﻿{
+  "designSystems": [
+    {
+      "designSystem": {
+        "displayName": "Grammar Scholar",
+        "styleGuidelines": "## Brand & Style\nThis design system focuses on academic rigor blended with modern accessibility. The target audience includes students and professionals seeking to refine their Portuguese grammar skills. The visual style is **Corporate / Modern**, emphasizing clarity, focus, and trust. \n\nThe UI uses a structured, \"Clean Academic\" aesthetic: heavy on white space to reduce cognitive load during complex linguistic tasks, with a deliberate hierarchy that separates instructional content from interactive assessment. The emotional response should be one of calm confidence and scholarly precision.\n\n## Layout & Spacing\nThe layout follows a **Fixed Grid** approach for desktop to keep reading lengths optimal (max 800px), preventing eye fatigue. \n- **Rhythm:** An 8px base unit governs all spacing.\n- **Desktop:** Centralized column with generous 32px padding within cards.\n- **Mobile:** Fluid width with 16px horizontal margins. \n- **Vertical Spacing:** Use 48px between major sections and 16px between question stems and multiple-choice options.\n\n## Elevation & Depth\nThis system uses **Tonal Layers** combined with **Ambient Shadows** to create a focused study environment.\n- **Level 0 (Background):** A very light gray (`#F9FAFB`) to reduce screen glare.\n- **Level 1 (Cards):** White surfaces with a 1px border (`#E5E7EB`) and a very soft, diffused shadow (0px 4px 6px rgba(0,0,0,0.05)).\n- **Level 2 (Active/Hover):** When an answer is selected or a card is hovered, the shadow intensifies slightly, and the border changes to the Primary or Secondary color.\n\n## Components\n- **Buttons:** Primary buttons use the Academic Blue with white text. Secondary buttons (e.g., \"Review Theory\") use a ghost style with a subtle gray border.\n- **Quiz Cards:** The central component. Contains the question stem in `body-lg`. Options are styled as large, clickable blocks with 16px padding and a 1px neutral border that turns blue on hover.\n- **Feedback Toasts:** Appear after selection. Correct feedback uses a light green background with dark green text; incorrect uses light red with dark red text.\n- **Progress Bar:** A thin, 8px tall bar at the top of the viewport using the Primary color on a light gray track.\n- **Explanation Box:** A subtle inset box (light gray background) that appears after an answer is submitted to provide the grammatical reasoning/rule.\n- **Multiple Choice Options:** Use `label-md` for the letter (A, B, C) and `body-md` for the text.",
+        "theme": {
+          "bodyFont": "INTER",
+          "bodyFontFamily": "Inter",
+          "colorMode": "LIGHT",
+          "colorVariant": "FIDELITY",
+          "customColor": "#1a56db",
+          "designMd": "---\nname: Grammar Scholar\ncolors:\n  surface: '#f8f9ff'\n  surface-dim: '#d1dbec'\n  surface-bright: '#f8f9ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#eef4ff'\n  surface-container: '#e5eeff'\n  surface-container-high: '#dfe9fa'\n  surface-container-highest: '#d9e3f4'\n  on-surface: '#121c28'\n  on-surface-variant: '#434654'\n  inverse-surface: '#27313e'\n  inverse-on-surface: '#eaf1ff'\n  outline: '#737686'\n  outline-variant: '#c3c5d7'\n  surface-tint: '#1353d8'\n  primary: '#003fb1'\n  on-primary: '#ffffff'\n  primary-container: '#1a56db'\n  on-primary-container: '#d4dcff'\n  inverse-primary: '#b5c4ff'\n  secondary: '#006c4a'\n  on-secondary: '#ffffff'\n  secondary-container: '#82f5c1'\n  on-secondary-container: '#00714e'\n  tertiary: '#98000c'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#c30d17'\n  on-tertiary-container: '#ffd3cd'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dbe1ff'\n  primary-fixed-dim: '#b5c4ff'\n  on-primary-fixed: '#00174d'\n  on-primary-fixed-variant: '#003dab'\n  secondary-fixed: '#85f8c4'\n  secondary-fixed-dim: '#68dba9'\n  on-secondary-fixed: '#002114'\n  on-secondary-fixed-variant: '#005137'\n  tertiary-fixed: '#ffdad6'\n  tertiary-fixed-dim: '#ffb4ab'\n  on-tertiary-fixed: '#410002'\n  on-tertiary-fixed-variant: '#93000b'\n  background: '#f8f9ff'\n  on-background: '#121c28'\n  surface-variant: '#d9e3f4'\ntypography:\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 32px\n    fontWeight: '700'\n    lineHeight: 40px\n  headline-lg-mobile:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '700'\n    lineHeight: 32px\n  headline-md:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n  body-lg:\n    fontFamily: Inter\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 28px\n  body-md:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  label-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '600'\n    lineHeight: 20px\n    letterSpacing: 0.02em\n  label-sm:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: 16px\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  base: 8px\n  container-max: 800px\n  gutter: 24px\n  margin-mobile: 16px\n  card-padding: 32px\n---\n\n## Brand & Style\nThis design system focuses on academic rigor blended with modern accessibility. The target audience includes students and professionals seeking to refine their Portuguese grammar skills. The visual style is **Corporate / Modern**, emphasizing clarity, focus, and trust. \n\nThe UI uses a structured, \"Clean Academic\" aesthetic: heavy on white space to reduce cognitive load during complex linguistic tasks, with a deliberate hierarchy that separates instructional content from interactive assessment. The emotional response should be one of calm confidence and scholarly precision.\n\n## Colors\nThe palette is functional and semantically driven:\n- **Primary (Academic Blue):** Used for headers, primary actions, and branding. It evokes stability and institutional knowledge.\n- **Secondary (Success Green):** Reserved for \"Correct\" states, progress indicators, and positive feedback.\n- **Tertiary (Error Red):** A softened red used for \"Incorrect\" states and critical alerts, designed to be noticeable without being anxiety-inducing.\n- **Neutral (Structural Gray):** A scale of grays used for typography, borders, and subtle background shifts to maintain a clean, organized look.\n\n## Typography\nThe system utilizes **Inter** (system-ui) for its exceptional legibility and neutral character, which is essential for studying grammar. \n- **Headlines:** Use Bold or SemiBold weights to clearly define section starts and question headers.\n- **Body:** Large line-heights (1.5x+) are applied to improve readability of long sentences and grammar explanations.\n- **Instructional Text:** Uses `label-md` in medium gray to differentiate between \"content\" and \"UI instructions.\"\n\n## Layout & Spacing\nThe layout follows a **Fixed Grid** approach for desktop to keep reading lengths optimal (max 800px), preventing eye fatigue. \n- **Rhythm:** An 8px base unit governs all spacing.\n- **Desktop:** Centralized column with generous 32px padding within cards.\n- **Mobile:** Fluid width with 16px horizontal margins. \n- **Vertical Spacing:** Use 48px between major sections and 16px between question stems and multiple-choice options.\n\n## Elevation & Depth\nThis system uses **Tonal Layers** combined with **Ambient Shadows** to create a focused study environment.\n- **Level 0 (Background):** A very light gray (`#F9FAFB`) to reduce screen glare.\n- **Level 1 (Cards):** White surfaces with a 1px border (`#E5E7EB`) and a very soft, diffused shadow (0px 4px 6px rgba(0,0,0,0.05)).\n- **Level 2 (Active/Hover):** When an answer is selected or a card is hovered, the shadow intensifies slightly, and the border changes to the Primary or Secondary color.\n\n## Shapes\nA **Rounded** (0.5rem) strategy is employed to soften the academic tone, making the learning experience feel approachable rather than punishing. \n- **Cards & Inputs:** 8px (`0.5rem`) corner radius.\n- **Buttons:** 8px (`0.5rem`) for a sturdy, professional feel.\n- **Selection Indicators (Radio/Check):** 4px for checkboxes, full circle for radio buttons.\n\n## Components\n- **Buttons:** Primary buttons use the Academic Blue with white text. Secondary buttons (e.g., \"Review Theory\") use a ghost style with a subtle gray border.\n- **Quiz Cards:** The central component. Contains the question stem in `body-lg`. Options are styled as large, clickable blocks with 16px padding and a 1px neutral border that turns blue on hover.\n- **Feedback Toasts:** Appear after selection. Correct feedback uses a light green background with dark green text; incorrect uses light red with dark red text.\n- **Progress Bar:** A thin, 8px tall bar at the top of the viewport using the Primary color on a light gray track.\n- **Explanation Box:** A subtle inset box (light gray background) that appears after an answer is submitted to provide the grammatical reasoning/rule.\n- **Multiple Choice Options:** Use `label-md` for the letter (A, B, C) and `body-md` for the text.",
+          "font": "INTER",
+          "headlineFont": "INTER",
+          "headlineFontFamily": "Inter",
+          "labelFont": "INTER",
+          "labelFontFamily": "Inter",
+          "namedColors": {
+            "background": "#f8f9ff",
+            "error": "#ba1a1a",
+            "error_container": "#ffdad6",
+            "inverse_on_surface": "#eaf1ff",
+            "inverse_primary": "#b5c4ff",
+            "inverse_surface": "#27313e",
+            "on_background": "#121c28",
+            "on_error": "#ffffff",
+            "on_error_container": "#93000a",
+            "on_primary": "#ffffff",
+            "on_primary_container": "#d4dcff",
+            "on_primary_fixed": "#00174d",
+            "on_primary_fixed_variant": "#003dab",
+            "on_secondary": "#ffffff",
+            "on_secondary_container": "#00714e",
+            "on_secondary_fixed": "#002114",
+            "on_secondary_fixed_variant": "#005137",
+            "on_surface": "#121c28",
+            "on_surface_variant": "#434654",
+            "on_tertiary": "#ffffff",
+            "on_tertiary_container": "#ffd3cd",
+            "on_tertiary_fixed": "#410002",
+            "on_tertiary_fixed_variant": "#93000b",
+            "outline": "#737686",
+            "outline_variant": "#c3c5d7",
+            "primary": "#003fb1",
+            "primary_container": "#1a56db",
+            "primary_fixed": "#dbe1ff",
+            "primary_fixed_dim": "#b5c4ff",
+            "secondary": "#006c4a",
+            "secondary_container": "#82f5c1",
+            "secondary_fixed": "#85f8c4",
+            "secondary_fixed_dim": "#68dba9",
+            "surface": "#f8f9ff",
+            "surface_bright": "#f8f9ff",
+            "surface_container": "#e5eeff",
+            "surface_container_high": "#dfe9fa",
+            "surface_container_highest": "#d9e3f4",
+            "surface_container_low": "#eef4ff",
+            "surface_container_lowest": "#ffffff",
+            "surface_dim": "#d1dbec",
+            "surface_tint": "#1353d8",
+            "surface_variant": "#d9e3f4",
+            "tertiary": "#98000c",
+            "tertiary_container": "#c30d17",
+            "tertiary_fixed": "#ffdad6",
+            "tertiary_fixed_dim": "#ffb4ab"
+          },
+          "overrideNeutralColor": "#4b5563",
+          "overridePrimaryColor": "#1a56db",
+          "overrideSecondaryColor": "#059669",
+          "overrideTertiaryColor": "#dc2626",
+          "roundness": "ROUND_EIGHT",
+          "spacing": {
+            "base": "8px",
+            "card-padding": "32px",
+            "container-max": "800px",
+            "gutter": "24px",
+            "margin-mobile": "16px"
+          },
+          "spacingScale": 2,
+          "typography": {
+            "body-lg": {
+              "fontFamily": "Inter",
+              "fontSize": "18px",
+              "fontWeight": "400",
+              "lineHeight": "28px"
+            },
+            "body-md": {
+              "fontFamily": "Inter",
+              "fontSize": "16px",
+              "fontWeight": "400",
+              "lineHeight": "24px"
+            },
+            "headline-lg": {
+              "fontFamily": "Inter",
+              "fontSize": "32px",
+              "fontWeight": "700",
+              "lineHeight": "40px"
+            },
+            "headline-lg-mobile": {
+              "fontFamily": "Inter",
+              "fontSize": "24px",
+              "fontWeight": "700",
+              "lineHeight": "32px"
+            },
+            "headline-md": {
+              "fontFamily": "Inter",
+              "fontSize": "24px",
+              "fontWeight": "600",
+              "lineHeight": "32px"
+            },
+            "label-md": {
+              "fontFamily": "Inter",
+              "fontSize": "14px",
+              "fontWeight": "600",
+              "letterSpacing": "0.02em",
+              "lineHeight": "20px"
+            },
+            "label-sm": {
+              "fontFamily": "Inter",
+              "fontSize": "12px",
+              "fontWeight": "500",
+              "lineHeight": "16px"
+            }
+          }
+        }
+      },
+      "name": "assets/24204a4d44ec4be7a03fd420cc8e85d0",
+      "version": "1"
+    }
+  ]
+}

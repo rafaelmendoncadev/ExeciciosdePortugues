@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gram├ítica Pro: Classifica├º├úo de Verbos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#dbe1ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary-container": "#1a56db",
+                      "on-tertiary-fixed": "#410002",
+                      "surface-variant": "#d9e3f4",
+                      "primary-fixed-dim": "#b5c4ff",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#c3c5d7",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#e5eeff",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-container": "#c30d17",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#dfe9fa",
+                      "surface-container-highest": "#d9e3f4",
+                      "on-primary": "#ffffff",
+                      "secondary": "#006c4a",
+                      "tertiary-fixed": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#002114",
+                      "on-primary-fixed": "#00174d",
+                      "surface": "#f8f9ff",
+                      "secondary-fixed-dim": "#68dba9",
+                      "primary": "#003fb1",
+                      "outline": "#737686",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "background": "#f8f9ff",
+                      "inverse-surface": "#27313e",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "on-primary-fixed-variant": "#003dab",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#98000c",
+                      "on-secondary-container": "#00714e",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#ffd3cd",
+                      "surface-container-low": "#eef4ff",
+                      "secondary-fixed": "#85f8c4",
+                      "on-surface": "#121c28",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#82f5c1",
+                      "surface-dim": "#d1dbec",
+                      "on-secondary-fixed-variant": "#005137",
+                      "on-background": "#121c28",
+                      "surface-tint": "#1353d8",
+                      "inverse-primary": "#b5c4ff",
+                      "on-primary-container": "#d4dcff",
+                      "on-surface-variant": "#434654"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "card-padding": "32px",
+                      "base": "8px",
+                      "container-max": "800px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                      "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                      "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body { background-color: #F9FAFB; }
+        
+        .quiz-option {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        
+        .quiz-option:hover:not(.selected):not(.disabled) {
+            border-color: #003fb1;
+            background-color: #e5eeff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .quiz-option.selected {
+            border-color: #003fb1;
+            background-color: #e5eeff;
+            box-shadow: inset 0 0 0 1px #003fb1;
+        }
+        
+        .quiz-option.disabled {
+            cursor: default;
+            opacity: 0.8;
+        }
+        
+        .quiz-option.correct {
+            border-color: #006c4a;
+            background-color: #e6f6f0;
+            box-shadow: inset 0 0 0 1px #006c4a;
+        }
+        
+        .quiz-option.incorrect {
+            border-color: #ba1a1a;
+            background-color: #ffdad6;
+            box-shadow: inset 0 0 0 1px #ba1a1a;
+        }
+        
+        .toast-enter {
+            animation: toast-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+        
+        @keyframes toast-in-right {
+            0% { transform: translateX(1000px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background pb-32 md:pb-0 pt-16 font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 max-w-container-max mx-auto shadow-sm">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">
+            Gram├ítica Pro
+        </div>
+<!-- Web Nav -->
+<nav class="hidden md:flex gap-6 h-full items-end">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer active:opacity-80 pb-4 font-label-md text-label-md" href="#">Teoria</a>
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-4 font-label-md text-label-md" href="#">Pr├ítica</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer active:opacity-80 pb-4 font-label-md text-label-md" href="#">Desafios</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer active:opacity-80 pb-4 font-label-md text-label-md" href="#">Progresso</a>
+</nav>
+<div class="font-label-md text-label-md text-primary dark:text-inverse-primary cursor-pointer hidden md:block">
+            Perfil
+        </div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-0 py-8 space-y-12">
+<header class="text-center space-y-4">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Classifica├º├úo de Verbos</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Aprimore seu conhecimento sobre transitividade verbal com teoria aplicada e pr├ítica intensiva.</p>
+</header>
+<!-- Theory Section -->
+<section class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-outline-variant pb-2">Resumo Te├│rico</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- VTD -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-2 mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider">Verbo Transitivo Direto (VTD)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Exige complemento sem preposi├º├úo obrigat├│ria (Objeto Direto).</p>
+<div class="bg-surface-container rounded p-3 font-label-md text-label-md text-on-surface">
+                        Exemplo: O aluno <span class="text-primary underline">comprou</span> <span class="font-bold">o livro</span>.
+                    </div>
+</div>
+<!-- VTI -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-2 mb-3 text-secondary">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider">Verbo Transitivo Indireto (VTI)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Exige complemento com preposi├º├úo obrigat├│ria (Objeto Indireto).</p>
+<div class="bg-surface-container rounded p-3 font-label-md text-label-md text-on-surface">
+                        Exemplo: A crian├ºa <span class="text-secondary underline">precisa</span> <span class="font-bold">de afeto</span>.
+                    </div>
+</div>
+<!-- VTDI -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-2 mb-3 text-tertiary">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider">Verbo Transitivo Direto e Indireto (VTDI)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Exige dois complementos: um sem e outro com preposi├º├úo.</p>
+<div class="bg-surface-container rounded p-3 font-label-md text-label-md text-on-surface">
+                        Exemplo: <span class="text-tertiary underline">Deu</span> <span class="font-bold">a not├¡cia</span> <span class="font-bold italic">aos pais</span>.
+                    </div>
+</div>
+<!-- VI -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-2 mb-3 text-on-surface">
+<span class="material-symbols-outlined" data-icon="horizontal_rule">horizontal_rule</span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider">Verbo Intransitivo (VI)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Apresenta sentido completo, n├úo exigindo complemento.</p>
+<div class="bg-surface-container rounded p-3 font-label-md text-label-md text-on-surface">
+                        Exemplo: O p├íssaro <span class="underline">voou</span>.
+                    </div>
+</div>
+<!-- VL -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+<div class="flex items-center gap-2 mb-3 text-primary">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+<h3 class="font-label-md text-label-md uppercase tracking-wider">Verbo de Liga├º├úo (VL)</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Liga o sujeito ao seu predicativo, indicando estado.</p>
+<div class="bg-surface-container rounded p-3 font-label-md text-label-md text-on-surface">
+                        Exemplo: Ela <span class="text-primary underline">est├í</span> <span class="font-bold">cansada</span>.
+                    </div>
+</div>
+</div>
+</section>
+<!-- Quiz App Container -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-card-padding" id="app">
+<!-- Dynamically populated by JS -->
+<div class="text-center py-12">
+<span class="material-symbols-outlined animate-spin text-primary" data-icon="sync">sync</span>
+<p class="mt-4 font-body-md text-on-surface-variant">Carregando Quiz Interativo...</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] fixed bottom-0 w-full z-50 flex justify-around items-center p-2 rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors cursor-pointer rounded-xl">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">In├¡cio</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 cursor-pointer scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Verbos</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors cursor-pointer rounded-xl">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="font-label-sm text-label-sm mt-1">Quiz</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors cursor-pointer rounded-xl">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Ranking</span>
+</div>
+</nav>
+<!-- JavaScript App Logic -->
+<script>
+        const questionPool = [
+            {
+                id: 1,
+                stem: "Na ora├º├úo 'A popula├º├úo assistiu ao debate com aten├º├úo', o verbo assistir ├® classificado como:",
+                options: [
+                    { id: 'a', text: "Verbo Transitivo Direto (VTD)", explanation: "Incorreto. O verbo 'assistir' no sentido de 'ver/presenciar' exige a preposi├º├úo 'a'." },
+                    { id: 'b', text: "Verbo Transitivo Indireto (VTI)", isCorrect: true, explanation: "Correto. O verbo 'assistir' (ver/presenciar) exige a preposi├º├úo 'a' (ao debate)." },
+                    { id: 'c', text: "Verbo Intransitivo (VI)", explanation: "Incorreto. Quem assiste (v├¬), assiste A algo." },
+                    { id: 'd', text: "Verbo Transitivo Direto e Indireto (VTDI)", explanation: "Incorreto. N├úo h├í um objeto direto na ora├º├úo." }
+                ]
+            },
+            {
+                id: 2,
+                stem: "Analise a frase: 'O professor entregou as provas aos alunos'. A classifica├º├úo correta do verbo entregar ├®:",
+                options: [
+                    { id: 'a', text: "Verbo Intransitivo (VI)", explanation: "Incorreto. O verbo entregar pede complemento." },
+                    { id: 'b', text: "Verbo Transitivo Direto (VTD)", explanation: "Incorreto. Falta a parte 'aos alunos', que ├® o objeto indireto." },
+                    { id: 'c', text: "Verbo Transitivo Direto e Indireto (VTDI)", isCorrect: true, explanation: "Correto. Entrega-se algo (as provas - OD) a algu├®m (aos alunos - OI)." },
+                    { id: 'd', text: "Verbo de Liga├º├úo (VL)", explanation: "Incorreto. Entregar indica a├º├úo, n├úo estado." }
+                ]
+            },
+            {
+                id: 3,
+                stem: "Em 'As crian├ºas dormem tranquilamente', o verbo dormir classifica-se como:",
+                options: [
+                    { id: 'a', text: "Verbo Intransitivo (VI)", isCorrect: true, explanation: "Correto. A a├º├úo de dormir tem sentido completo ('tranquilamente' ├® adjunto adverbial de modo)." },
+                    { id: 'b', text: "Verbo Transitivo Direto (VTD)", explanation: "Incorreto. N├úo h├í objeto recebendo a a├º├úo diretamente." },
+                    { id: 'c', text: "Verbo de Liga├º├úo (VL)", explanation: "Incorreto. Dormir ├® a├º├úo, n├úo estado." },
+                    { id: 'd', text: "Verbo Transitivo Indireto (VTI)", explanation: "Incorreto. N├úo h├í objeto com preposi├º├úo." }
+                ]
+            },
+            {
+                id: 4,
+                stem: "Na frase 'O c├®u continua nublado', o verbo continuar funciona como:",
+                options: [
+                    { id: 'a', text: "Verbo Transitivo Direto (VTD)", explanation: "Incorreto. 'Nublado' n├úo ├® objeto, ├® caracter├¡stica do sujeito." },
+                    { id: 'b', text: "Verbo Intransitivo (VI)", explanation: "Incorreto. Precisa de predicativo para ter sentido na frase." },
+                    { id: 'c', text: "Verbo de Liga├º├úo (VL)", isCorrect: true, explanation: "Correto. 'Continuar' liga o sujeito (O c├®u) a um estado (nublado)." },
+                    { id: 'd', text: "Verbo Transitivo Indireto (VTI)", explanation: "Incorreto. N├úo h├í objeto indireto." }
+                ]
+            },
+            {
+                id: 5,
+                stem: "Identifique a classifica├º├úo do verbo na ora├º├úo: 'N├│s compramos um carro novo.'",
+                options: [
+                    { id: 'a', text: "Verbo Transitivo Direto (VTD)", isCorrect: true, explanation: "Correto. Quem compra, compra algo ('um carro novo' - OD sem preposi├º├úo obrigat├│ria)." },
+                    { id: 'b', text: "Verbo Transitivo Indireto (VTI)", explanation: "Incorreto. N├úo h├í preposi├º├úo ligando o verbo ao complemento." },
+                    { id: 'c', text: "Verbo Intransitivo (VI)", explanation: "Incorreto. A frase ficaria incompleta sem o complemento." },
+                    { id: 'd', text: "Verbo de Liga├º├úo (VL)", explanation: "Incorreto. Comprar ├® a├º├úo." }
+                ]
+            },
+            {
+                id: 6,
+                stem: "Em 'Ele aspirava ao cargo de gerente', o verbo aspirar ├®:",
+                options: [
+                    { id: 'a', text: "Verbo Transitivo Direto (VTD)", explanation: "Incorreto. No sentido de desejar/almejar, 'aspirar' ├® VTI." },
+                    { id: 'b', text: "Verbo Transitivo Indireto (VTI)", isCorrect: true, explanation: "Correto. Aspirar no sentido de almejar exige a preposi├º├úo 'a'." },
+                    { id: 'c', text: "Verbo Intransitivo (VI)", explanation: "Incorreto. Pede complemento (ao cargo)." },
+                    { id: 'd', text: "Verbo de Liga├º├úo (VL)", explanation: "Incorreto. Indica a├º├úo de desejar." }
+                ]
+            }
+        ];
+
+        // App State
+        let currentQuestions = [];
+        let userAnswers = {};
+        let isSubmitted = false;
+
+        function shuffleArray(array) {
+            const newArr = [...array];
+            for (let i = newArr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+            }
+            return newArr;
+        }
+
+        function initQuiz() {
+            // Select 5 random questions
+            currentQuestions = shuffleArray(questionPool).slice(0, 5);
+            userAnswers = {};
+            isSubmitted = false;
+            renderQuiz();
+        }
+
+        function handleSelectOption(qIndex, optionId) {
+            if (isSubmitted) return;
+            userAnswers[qIndex] = optionId;
+            renderQuiz();
+        }
+
+        function handleSubmit() {
+            if (Object.keys(userAnswers).length < currentQuestions.length) {
+                alert("Por favor, responda todas as quest├Áes antes de enviar.");
+                return;
+            }
+            isSubmitted = true;
+            renderQuiz();
+        }
+
+        function renderQuiz() {
+            const app = document.getElementById('app');
+            let html = '';
+
+            // Header progress
+            const progress = Object.keys(userAnswers).length;
+            const progressPercent = (progress / currentQuestions.length) * 100;
+
+            html += `
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <h2 class="font-headline-md text-headline-md text-on-surface">Quiz Pr├ítico</h2>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant">${progress}/${currentQuestions.length} respondidas</span>
+                    </div>
+                    <div class="w-full bg-surface-variant rounded-full h-2">
+                        <div class="bg-primary h-2 rounded-full transition-all duration-300" style="width: ${progressPercent}%"></div>
+                    </div>
+                </div>
+                <div class="space-y-12">
+            `;
+
+            if (!isSubmitted) {
+                // Render Questions
+                currentQuestions.forEach((q, qIndex) => {
+                    html += `
+                        <div class="space-y-4">
+                            <h3 class="font-body-lg text-body-lg text-on-surface font-semibold">
+                                <span class="text-primary mr-2">${qIndex + 1}.</span>${q.stem}
+                            </h3>
+                            <div class="space-y-2 pl-6">
+                    `;
+
+                    q.options.forEach(opt => {
+                        const isSelected = userAnswers[qIndex] === opt.id;
+                        html += `
+                            <div onclick="handleSelectOption(${qIndex}, '${opt.id}')" 
+                                 class="quiz-option p-4 rounded-lg border ${isSelected ? 'selected' : 'border-outline-variant'} flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full border-2 ${isSelected ? 'border-primary flex items-center justify-center' : 'border-outline-variant'} shrink-0 mt-0.5">
+                                    ${isSelected ? '<div class="w-3 h-3 bg-primary rounded-full"></div>' : ''}
+                                </div>
+                                <div>
+                                    <span class="font-label-md text-label-md mr-2">${opt.id.toUpperCase()}.</span>
+                                    <span class="font-body-md text-body-md text-on-surface">${opt.text}</span>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    html += `</div></div>`;
+                });
+
+                html += `
+                    <div class="pt-8 flex justify-end border-t border-outline-variant">
+                        <button onclick="handleSubmit()" 
+                                class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-on-primary-fixed-variant transition-colors flex items-center gap-2"
+                                ${progress < currentQuestions.length ? 'opacity-50 cursor-not-allowed' : ''}>
+                            Enviar Respostas
+                            <span class="material-symbols-outlined" data-icon="send">send</span>
+                        </button>
+                    </div>
+                `;
+
+            } else {
+                // Render Results
+                let score = 0;
+                currentQuestions.forEach((q, qIndex) => {
+                    const selectedOptId = userAnswers[qIndex];
+                    const selectedOpt = q.options.find(o => o.id === selectedOptId);
+                    if (selectedOpt && selectedOpt.isCorrect) score++;
+                });
+
+                const isPerfect = score === currentQuestions.length;
+
+                html += `
+                    <div class="text-center p-8 bg-${isPerfect ? 'surface-container-low' : 'surface-variant'} rounded-xl mb-8">
+                        <span class="material-symbols-outlined text-4xl text-${isPerfect ? 'secondary' : 'primary'} mb-4" data-icon="${isPerfect ? 'workspace_premium' : 'analytics'}">
+                            ${isPerfect ? 'workspace_premium' : 'analytics'}
+                        </span>
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Seu Resultado: ${score}/${currentQuestions.length}</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            ${isPerfect ? 'Excelente! Voc├¬ domina a transitividade verbal.' : 'Bom esfor├ºo! Revise as explica├º├Áes abaixo para melhorar.'}
+                        </p>
+                    </div>
+                `;
+
+                currentQuestions.forEach((q, qIndex) => {
+                    const selectedOptId = userAnswers[qIndex];
+                    const selectedOpt = q.options.find(o => o.id === selectedOptId);
+                    const isCorrect = selectedOpt && selectedOpt.isCorrect;
+
+                    html += `
+                        <div class="space-y-4 pb-8 border-b border-outline-variant last:border-0">
+                            <h3 class="font-body-lg text-body-lg text-on-surface font-semibold">
+                                <span class="${isCorrect ? 'text-secondary' : 'text-error'} mr-2">
+                                    <span class="material-symbols-outlined align-middle" data-icon="${isCorrect ? 'check_circle' : 'cancel'}">${isCorrect ? 'check_circle' : 'cancel'}</span>
+                                </span>
+                                ${q.stem}
+                            </h3>
+                            <div class="space-y-2 pl-8">
+                    `;
+
+                    q.options.forEach(opt => {
+                        const isUserChoice = opt.id === selectedOptId;
+                        let optionClass = "border-outline-variant opacity-50";
+                        if (isUserChoice && opt.isCorrect) optionClass = "correct";
+                        else if (isUserChoice && !opt.isCorrect) optionClass = "incorrect";
+                        else if (!isUserChoice && opt.isCorrect) optionClass = "correct border-dashed";
+
+                        html += `
+                            <div class="quiz-option disabled p-4 rounded-lg border ${optionClass} flex flex-col gap-2">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-6 h-6 rounded-full border-2 ${isUserChoice ? 'border-current' : 'border-outline-variant'} flex items-center justify-center shrink-0 mt-0.5">
+                                        ${isUserChoice ? '<div class="w-3 h-3 bg-current rounded-full"></div>' : ''}
+                                    </div>
+                                    <div>
+                                        <span class="font-label-md text-label-md mr-2">${opt.id.toUpperCase()}.</span>
+                                        <span class="font-body-md text-body-md text-on-surface">${opt.text}</span>
+                                    </div>
+                                </div>
+                                ${(isUserChoice || opt.isCorrect) ? `
+                                    <div class="mt-2 ml-10 p-3 bg-surface-container-lowest rounded border border-outline-variant font-body-sm text-on-surface-variant">
+                                        <strong>Explica├º├úo:</strong> ${opt.explanation}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                    });
+
+                    html += `</div></div>`;
+                });
+
+                html += `
+                    <div class="pt-8 flex justify-center">
+                        <button onclick="initQuiz()" 
+                                class="border border-primary text-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary-fixed transition-colors flex items-center gap-2">
+                            Tentar Novamente
+                            <span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                        </button>
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+            app.innerHTML = html;
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initQuiz();
+        });
+    </script>
+</body></html>
